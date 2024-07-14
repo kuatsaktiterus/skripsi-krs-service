@@ -1,7 +1,4 @@
-import { Prisma } from "@prisma/client";
-import { prisma } from "../../lib/prisma-client";
 import { Request, Response } from "express";
-import Controller from "../controller";
 import { KrsService } from "../../service/krs.service";
 import { ResponseController } from "../reponse.controller";
 import { ErrorHandler } from "../../error.handler";

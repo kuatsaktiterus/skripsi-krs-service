@@ -2,7 +2,6 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma-client";
 import getMataKuliahKrsService from "../../service/get-matakuliah-krs-service";
 import { Request, Response } from "express";
-import Controller from "../controller";
 import { KrsService } from "../../service/krs.service";
 import { ResponseController } from "../reponse.controller";
 import { ErrorHandler } from "../../error.handler";
@@ -46,6 +45,6 @@ export class KrsController {
   }
 
   static async checkKrsActive(req: Request, res: Response) {
-    return res.status(200).send(Controller.response(200, true));
+    return res.status(200).send(ResponseController.response(res, true));
   }
 }

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
-import response from "../controller/controller";
+import { ErrorHandler } from "../error.handler";
 
 export function validateRequestSchema(
   req: Request,
@@ -22,7 +22,7 @@ export function validateRequestSchema(
       errObj = { ...errObj, [err?.[0]]: [err?.[1]] };
     });
 
-    return res.status(400).json(response.responseError(400, errObj));
+    return res.status(400).json(ErrorHandler.catch(res, errors, errObj, 400));
   }
   next();
 }
